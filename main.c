@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>1
+#include <ctype.h>
 #include <stdlib.h>
 
 //prints board
