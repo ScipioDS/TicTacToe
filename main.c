@@ -4,26 +4,25 @@
 
 //prints board
 void printb(char n[3][3]){
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            printf("%c ",n[i][j]);
-        }
-        printf("\n");
-    }
+    printf(" %c | %c | %c",n[0][0],n[0][1],n[0][2]);
+    printf("\n---|---|---\n");
+    printf(" %c | %c | %c",n[1][0],n[1][1],n[1][2]);
+    printf("\n---|---|---\n");
+    printf(" %c | %c | %c\n",n[2][0],n[2][1],n[2][2]);
 }
 
 //resets board
 void clear(char n[3][3]){
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
-            n[i][j]='*';
+            n[i][j]=' ';
         }
     }
 }
 
 //checks if spot is free
 int check(char n[3][3], int y, int x){
-    if(n[y][x]=='*')
+    if(n[y][x]==' ')
         return 1;
     else
         return 0;
@@ -66,9 +65,11 @@ while(1){
 
     //input
     if(flag){
-        printf("Input location of X\n");
+        printf("Input location of X: (1-3)\n");
         flag=0;
         scanf("%d %d",&y,&x);
+        x--;
+        y--;
         if(check(n,y,x)){
             n[y][x]='X';
             mvc++;
@@ -76,9 +77,11 @@ while(1){
 
     }
     else{
-        printf("Input location of O\n");
+        printf("Input location of O: (1-3)\n");
         flag=1;
         scanf("%d %d",&y,&x);
+        x--;
+        y--;
         if(check(n,y,x)){
             n[y][x]='O';
             mvc++;
